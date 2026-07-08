@@ -84,7 +84,7 @@ const PROJECTS = [
     description:
       "Real-time SaaS analytics dashboard with multi-tenant data isolation, custom chart widgets, and CSV export.",
     tags: ["Next.js", "Postgres", "Recharts", "Stripe"],
-    imageSrc: "/placeholder.svg",
+    imageSrc: "/projectPulseboard.png",
     imageAlt: "Pulseboard analytics dashboard interface",
   },
   {
@@ -92,7 +92,7 @@ const PROJECTS = [
     description:
       "Internal deployment platform supporting 12 microservices with zero-downtime blue-green deploys.",
     tags: ["GitHub Actions", "Docker", "k8s", "Terraform"],
-    imageSrc: "/placeholder.svg",
+    imageSrc: "/flowDeploy.png",
     imageAlt: "FlowDeploy CI/CD pipeline interface",
   },
   {
@@ -100,7 +100,7 @@ const PROJECTS = [
     description:
       "Customer onboarding flow engine with conditional branching, e-signature, and CRM sync for a B2B SaaS.",
     tags: ["React", "Node.js", "HubSpot API", "Docusign"],
-    imageSrc: "/placeholder.svg",
+    imageSrc: "/Nexus.png",
     imageAlt: "Nexus customer onboarding flow interface",
   },
   {
@@ -108,7 +108,7 @@ const PROJECTS = [
     description:
       "API gateway with rate limiting, key rotation, usage analytics, and developer portal for a fintech client.",
     tags: ["Fastify", "Redis", "AWS Lambda", "PostgreSQL"],
-    imageSrc: "/placeholder.svg",
+    imageSrc: "/VaultAPI.png",
     imageAlt: "VaultAPI developer gateway interface",
   },
   {
@@ -116,7 +116,7 @@ const PROJECTS = [
     description:
       "Full cloud migration from monolith to microservices on AWS ECS with auto-scaling and cost optimisation.",
     tags: ["AWS ECS", "RDS", "CloudFront", "Pulumi"],
-    imageSrc: "/placeholder.svg",
+    imageSrc: "/ScaleStack.png",
     imageAlt: "ScaleStack cloud infrastructure diagram",
   },
 ];
