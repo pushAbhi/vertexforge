@@ -240,3 +240,16 @@
   }
   html { scroll-behavior: auto; }
 }
+
+/* Target your Navbar component container */
+header, .navbar-container-class {
+  view-transition-name: main-navbar;
+  /* Enforces proper stacking context during the transition phase */
+  isolation: isolate; 
+}
+
+/* Target your Footer component container */
+footer, .footer-container-class {
+  view-transition-name: main-footer;
+  isolation: isolate;
+}

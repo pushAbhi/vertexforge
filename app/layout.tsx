@@ -9,6 +9,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import { ViewTransition } from "react";
 
 /* --------------------------------------------------------
    Fonts — Inter for all weights (headings + body)
@@ -76,8 +77,9 @@ export default function RootLayout({
           {/* Global Navbar */}
           <Navbar />
 
-          {/* Page Content */}
-          <main className="flex-1">{children}</main>
+          <ViewTransition>
+            <main className="flex-1">{children}</main>
+          </ViewTransition>
 
           {/* Global Footer */}
           <Footer />
