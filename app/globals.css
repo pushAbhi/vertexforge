@@ -1,26 +1,243 @@
+/* ============================================================
+   VertexForge — Global Styles
+   Tailwind CSS v4 with @theme design tokens
+   ============================================================ */
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ------------------------------------------------------------
+   Design Tokens via @theme
+   Registers custom colors as Tailwind utility classes:
+   bg-cream, text-amber, border-sage, etc.
+   ------------------------------------------------------------ */
+@theme {
+  /* Brand Palette */
+  --color-sage:       #ccd5ae;
+  --color-parchment:  #e9edc9;
+  --color-cream:      #fefae0;
+  --color-blush:      #faedcd;
+  --color-amber:      #d4a373;
+  --color-amber-dark: #b8865a;
+  --color-amber-light:#e8c49e;
+
+  /* Text */
+  --color-stone:      #3d3027;
+  --color-stone-light:#5a4a3a;
+  --color-muted:      #7a6a5a;
+  --color-subtle:     #a09080;
+
+  /* Semantic */
+  --color-background: #fefae0;
+  --color-surface:    #faedcd;
+  --color-surface-alt:#f5e8c4;
+  --color-border:     #e0d0b8;
+  --color-border-subtle: #ecdfc8;
+
+  /* Typography */
+  --font-sans:   var(--font-inter), system-ui, sans-serif;
+  --font-heading:var(--font-inter), system-ui, sans-serif;
+  --font-mono:   "JetBrains Mono", "Fira Code", monospace;
+
+  /* Spacing scale extensions */
+  --spacing-18:  4.5rem;
+  --spacing-22:  5.5rem;
+  --spacing-128: 32rem;
+
+  /* Border radius */
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  /* Transitions */
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Animations */
+  --animate-fade-up:    fade-up 0.6s ease both;
+  --animate-fade-in:    fade-in 0.5s ease both;
+  --animate-slide-in:   slide-in 0.5s ease both;
+  --animate-float:      float 6s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ------------------------------------------------------------
+   Keyframe Animations
+   ------------------------------------------------------------ */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
+}
+
+/* Scroll-driven: scale-up cards on entry */
+@keyframes scale-reveal {
+  from { opacity: 0.4; transform: scale(0.9); }
+  to   { opacity: 1;   transform: scale(1); }
+}
+
+/* ------------------------------------------------------------
+   Base / Reset
+   ------------------------------------------------------------ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-stone);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ------------------------------------------------------------
+     Typography Defaults
+     ------------------------------------------------------------ */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-stone);
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img, video {
+    max-width: 100%;
+    display: block;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ------------------------------------------------------------
+   Selection Highlight
+   ------------------------------------------------------------ */
+::selection {
+  background-color: var(--color-amber);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------
+   Focus Ring — Accessible, on-brand
+   ------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------
+   Scrollbar (WebKit) — subtle, on-brand
+   ------------------------------------------------------------ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-amber); }
+
+/* ------------------------------------------------------------
+   Utility: Scroll-driven scale reveal
+   Used on project carousel items
+   ------------------------------------------------------------ */
+.scroll-reveal {
+  animation: scale-reveal linear both;
+  animation-timeline: view(inline);
+  animation-range: entry 10% cover 30%;
+}
+
+/* ------------------------------------------------------------
+   Utility: Gradient text
+   ------------------------------------------------------------ */
+.gradient-text {
+  background: linear-gradient(
+    135deg in oklab,
+    var(--color-amber-dark) 0%,
+    var(--color-amber) 50%,
+    var(--color-sage) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ------------------------------------------------------------
+   Utility: Glass card
+   ------------------------------------------------------------ */
+.glass-card {
+  background: rgba(254, 250, 224, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 163, 115, 0.2);
+}
+
+/* ------------------------------------------------------------
+   Utility: Section padding
+   ------------------------------------------------------------ */
+.section-py {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-py {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   Prefers reduced motion
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
 }
