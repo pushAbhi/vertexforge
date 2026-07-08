@@ -50,7 +50,7 @@ function ProjectSlide({ project, role, onClick, onHoverChange }: ProjectSlidePro
         relative rounded-2xl overflow-hidden border
         transition-all duration-500 ease-out
         ${isActive
-          ? "flex-[2] opacity-100 z-10 border-amber/30 shadow-2xl cursor-default"
+          ? "flex-2 opacity-100 z-10 border-amber/30 shadow-2xl cursor-default"
           : "flex-[0.6] opacity-40 z-0 border-border shadow-sm cursor-pointer hover:opacity-70"
         }
       `}
@@ -73,7 +73,7 @@ function ProjectSlide({ project, role, onClick, onHoverChange }: ProjectSlidePro
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div
-              className="absolute inset-0 bg-gradient-to-t from-stone/20 to-transparent"
+              className="absolute inset-0 bg-linear-to-t from-stone/20 to-transparent"
               aria-hidden="true"
             />
           </div>
@@ -138,7 +138,7 @@ function ProjectSlide({ project, role, onClick, onHoverChange }: ProjectSlidePro
             className="object-cover"
             sizes="300px"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone/60 to-stone/10" />
+          <div className="absolute inset-0 bg-linear-to-t from-stone/60 to-stone/10" />
           <div className="absolute bottom-6 left-6 right-6">
             <p className="text-white text-lg font-700">{project.title}</p>
             <p className="text-white/70 text-sm mt-1 line-clamp-1">{project.description}</p>

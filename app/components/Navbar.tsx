@@ -30,11 +30,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* Close mobile menu on route change */
-  useEffect(() => {
-      setIsMenuOpen(false);
-  }, [pathname]);
-
   /* Lock body scroll when mobile menu is open */
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -232,6 +227,7 @@ export default function Navbar() {
                 <li key={href}>
                   <Link
                     href={href}
+                    onClick={() => setIsMenuOpen(false)}
                     className={`
                       flex items-center px-4 py-3 rounded-xl text-base font-500
                       transition-colors duration-200

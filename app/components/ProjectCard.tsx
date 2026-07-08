@@ -44,7 +44,7 @@ export default function ProjectCard({
         />
         {/* Subtle gradient overlay */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-stone/30 to-transparent"
+          className="absolute inset-0 bg-linear-to-t from-stone/30 to-transparent"
           aria-hidden="true"
         />
       </div>
