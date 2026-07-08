@@ -5,7 +5,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import ContactTeaser from "../components/ContactTeaser";
+import ContactForm from "../components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -294,7 +294,53 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <ContactTeaser />
+      {/* ═══════════════════════════════════════════
+          CONTACT FORM SECTION
+          ═══════════════════════════════════════════ */}
+      <section className="section-py bg-blush border-y border-border" aria-labelledby="contact-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+            
+            {/* Left: Copy */}
+            <div className="lg:col-span-2">
+              <p className="text-xs font-700 uppercase tracking-widest text-amber mb-3">
+                Let&apos;s Work Together
+              </p>
+              <h2 id="contact-heading" className="text-3xl lg:text-4xl font-800 text-stone mb-4 leading-tight">
+                Have a project in mind?
+              </h2>
+              <p className="text-muted leading-relaxed mb-6">
+                Tell us about your SaaS idea or challenge. We&apos;ll get back to
+                you within one business day.
+              </p>
+
+              {/* Trust signals */}
+              <ul className="space-y-2.5" role="list">
+                {[
+                  "No commitment required",
+                  "Reply within 24 hours",
+                  "Free initial consultation",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-muted">
+                    <span className="w-5 h-5 rounded-full bg-sage/60 flex items-center justify-center flex-none" aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M2 5l2 2 4-4" stroke="#3d3027" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right: Form */}
+            <div className="lg:col-span-3">
+              <ContactForm />
+            </div>
+
+          </div>
+        </div>
+      </section>
     </>
   );
 }
