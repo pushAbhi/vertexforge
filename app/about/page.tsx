@@ -115,11 +115,11 @@ export default function AboutPage() {
       <section className="section-py bg-cream" aria-labelledby="story-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Image placeholder */}
+            {/* Project showcasing image */}
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-blush border border-border">
+              <div className="rounded-2xl overflow-hidden aspect-video bg-blush border border-border">
                 <Image
-                  src="/placeholder.svg"
+                  src="/dashboard-web.jpg"
                   alt="The VertexForge team collaborating"
                   fill
                   className="object-cover"
