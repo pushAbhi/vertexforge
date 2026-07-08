@@ -111,7 +111,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     font-size: 16px;
   }
@@ -196,8 +195,8 @@
 .gradient-text {
   background: linear-gradient(
     135deg in oklab,
-    var(--color-amber-dark) 0%,
-    var(--color-amber) 50%,
+    var(--color-sage) 0%,
+    #8f9c6d 50%,
     var(--color-sage) 100%
   );
   -webkit-background-clip: text;

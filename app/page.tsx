@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroAnimation } from "./components/HeroAnimation";
 import ServiceCard from "./components/ServiceCard";
-import ProjectCard from "./components/ProjectCard";
+import ProjectCarousel from "./components/ProjectCarousel";
 import ContactTeaser from "./components/ContactTeaser";
 
 export const metadata: Metadata = {
@@ -203,29 +203,37 @@ export default function HomePage() {
                     Explore Services
                   </Link>
                 </div>
+              </div>
 
-                {/* Social proof */}
-                <div className="mt-10 flex items-center gap-6">
-                  {[
-                    { value: "40+", label: "Projects shipped" },
-                    { value: "98%", label: "Client satisfaction" },
-                    { value: "5yr", label: "In the field" },
-                  ].map(({ value, label }) => (
-                    <div key={label} className="text-center">
-                      <p className="text-xl font-800 text-stone">{value}</p>
-                      <p className="text-xs text-muted">{label}</p>
-                    </div>
-                  ))}
-                </div>
+              {/* Social proof — 3-column cards */}
+              <div className="grid grid-cols-3 gap-3 mt-10">
+                {[
+                  { value: "40+", label: "Projects shipped" },
+                  { value: "98%", label: "Client satisfaction" },
+                  { value: "5yr", label: "In the field" },
+                ].map(({ value, label }) => (
+                  <div
+                    key={label}
+                    className="
+                      bg-sage/20 border border-sage/40
+                      rounded-xl px-4 py-5
+                      text-center
+                      hover:bg-sage/30 transition-colors duration-200
+                    "
+                  >
+                    <p className="text-2xl lg:text-3xl font-800 text-stone">{value}</p>
+                    <p className="text-xs lg:text-sm text-muted mt-1">{label}</p>
+                  </div>
+                ))}
               </div>
             </HeroAnimation>
 
             {/* ── Right: Dashboard Mockup ── */}
             <div className="relative flex items-center justify-center lg:justify-end">
-              {/* Web dashboard — behind, centered */}
+              {/* Web dashboard — large and prominent */}
               <div
                 className="
-                  relative w-full max-w-lg lg:max-w-none
+                  relative w-full max-w-xl lg:max-w-none
                   rounded-2xl overflow-hidden shadow-2xl
                   border border-border
                   animate-float
@@ -235,20 +243,20 @@ export default function HomePage() {
                 <Image
                   src="/dashboard-web.jpg"
                   alt="SaaS analytics dashboard showing MRR metrics and revenue graph"
-                  width={640}
-                  height={400}
+                  width={720}
+                  height={450}
                   className="w-full h-auto"
                   priority
                 />
               </div>
 
-              {/* Mobile mockup — overlapping bottom-left, white border */}
+              {/* Mobile mockup — smaller, pinned bottom-left */}
               <div
                 className="
-                  absolute -bottom-6 -left-4 lg:-left-8
-                  w-36 sm:w-44 lg:w-52
-                  rounded-2xl overflow-hidden
-                  border-4 border-white shadow-2xl
+                  absolute -bottom-4 -left-6 lg:-left-10
+                  w-28 sm:w-32 lg:w-36
+                  rounded-xl overflow-hidden
+                  border-3 border-white shadow-xl
                   animate-float z-10
                 "
                 style={{ animationDelay: "1.5s" }}
@@ -256,8 +264,8 @@ export default function HomePage() {
                 <Image
                   src="/dashboard-mobile.jpg"
                   alt="SaaS analytics mobile app view"
-                  width={208}
-                  height={370}
+                  width={144}
+                  height={256}
                   className="w-full h-auto"
                   priority
                 />
@@ -295,7 +303,7 @@ export default function HomePage() {
           SERVICES HIGHLIGHTS
           ═══════════════════════════════════════════ */}
       <section
-        className="section-py bg-cream"
+        className="section-py bg-sage/20 border-y border-sage/30"
         aria-labelledby="services-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -343,10 +351,10 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          FEATURED PROJECTS — Horizontal carousel
+          FEATURED PROJECTS — Animated Carousel
           ═══════════════════════════════════════════ */}
       <section
-        className="section-py bg-surface-alt overflow-hidden border-y border-border"
+        className="section-py bg-cream overflow-hidden"
         aria-labelledby="projects-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
@@ -363,32 +371,12 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="text-sm text-muted">
-              Scroll to explore →
+              Hover to explore
             </p>
           </div>
         </div>
 
-        {/* Carousel container — CSS scroll snap + scroll-driven scale reveal */}
-        <div
-          className="
-            flex gap-5 overflow-x-auto
-            scroll-smooth snap-x snap-mandatory
-            pb-6 pt-2
-            px-4 sm:px-6 lg:px-8
-            scrollbar-thin scrollbar-track-transparent scrollbar-thumb-sage
-          "
-          role="list"
-          aria-label="Featured projects"
-          style={{
-            /* Ensure first card aligns to page content */
-            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 2rem))",
-            paddingRight: "max(1rem, calc((100vw - 80rem) / 2 + 2rem))",
-          }}
-        >
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
-        </div>
+        <ProjectCarousel projects={PROJECTS} />
       </section>
 
       {/* ═══════════════════════════════════════════

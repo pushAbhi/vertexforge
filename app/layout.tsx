@@ -8,6 +8,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 /* --------------------------------------------------------
    Fonts — Inter for all weights (headings + body)
@@ -69,16 +70,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-cream text-stone antialiased">
-        {/* Global Navbar */}
-        <Navbar />
+        <SmoothScroll>
+          {/* Global Navbar */}
+          <Navbar />
 
-        {/* Page Content */}
-        <main className="flex-1">{children}</main>
+          {/* Page Content */}
+          <main className="flex-1">{children}</main>
 
-        {/* Global Footer */}
-        <Footer />
+          {/* Global Footer */}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
