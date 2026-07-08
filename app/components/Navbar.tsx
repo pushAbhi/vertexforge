@@ -32,7 +32,7 @@ export default function Navbar() {
 
   /* Close mobile menu on route change */
   useEffect(() => {
-    setIsMenuOpen(false);
+      setIsMenuOpen(false);
   }, [pathname]);
 
   /* Lock body scroll when mobile menu is open */

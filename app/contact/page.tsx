@@ -57,7 +57,7 @@ export default function ContactPage() {
           ═══════════════════════════════════════════ */}
       <section className="relative pt-32 pb-8 bg-cream overflow-hidden" aria-label="Contact hero">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-20 right-0 w-[500px] h-[500px] rounded-full bg-blush/60 blur-3xl opacity-60" />
+          <div className="absolute -top-20 right-0 w-125 h-125 rounded-full bg-blush/60 blur-3xl opacity-60" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-2xl">
