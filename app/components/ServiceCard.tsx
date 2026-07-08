@@ -30,7 +30,7 @@ export default function ServiceCard({
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.4, 0, 0.2, 1] }}
       className="
         group relative
-        bg-cream border border-border
+        bg-sage/30 border border-border
         rounded-2xl p-6 lg:p-7
         hover:-translate-y-1.5 hover:shadow-lg hover:border-amber/40
         transition-all duration-300 cursor-default

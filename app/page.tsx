@@ -303,7 +303,7 @@ export default function HomePage() {
           SERVICES HIGHLIGHTS
           ═══════════════════════════════════════════ */}
       <section
-        className="section-py bg-sage/20 border-y border-sage/30"
+        className="section-py bg-cream border-y border-sage/30"
         aria-labelledby="services-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
