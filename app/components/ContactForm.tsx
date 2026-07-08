@@ -1,21 +1,7 @@
-/**
- * ContactForm — Full contact form with validation and reCAPTCHA
- * Separate client component so contact/page.tsx stays a Server Component.
- *
- * reCAPTCHA: Uses Google's test site key for development.
- * Replace RECAPTCHA_SITE_KEY with your real key for production.
- * Connect submission logic to EmailJS or Resend in the handleSubmit function.
- */
-
 "use client";
 
 import { useState, useRef, useId } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-
-/* ──────────────────────────────────────────────────
-   Config — swap with your real reCAPTCHA site key
-   ────────────────────────────────────────────────── */
-const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MFLbcpuS"; // Test key
 
 /* ──────────────────────────────────────────────────
    Types
@@ -123,25 +109,11 @@ export default function ContactForm() {
     setFormState("submitting");
 
     try {
-      /**
-       * TODO: Connect to EmailJS or Resend here.
-       *
-       * EmailJS example:
-       * await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-       *   from_name: formData.name,
-       *   from_email: formData.email,
-       *   phone: formData.phone,
-       *   subject: formData.subject,
-       *   message: formData.message,
-       *   'g-recaptcha-response': captchaToken,
-       * }, PUBLIC_KEY);
-       *
-       * Resend example (via API route):
-       * await fetch('/api/contact', {
-       *   method: 'POST',
-       *   body: JSON.stringify({ ...formData, captchaToken }),
-       * });
-       */
+      await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify({ ...formData, captchaToken }),
+      });
+      
       await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulated
       setFormState("success");
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
@@ -345,7 +317,7 @@ export default function ContactForm() {
       <div>
         <ReCAPTCHA
           ref={recaptchaRef}
-          sitekey={RECAPTCHA_SITE_KEY}
+          sitekey={process.env.RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
           onChange={handleCaptchaChange}
           onExpired={() => setCaptchaToken(null)}
           theme="light"

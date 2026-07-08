@@ -137,9 +137,9 @@ export default function HomePage() {
       >
         {/* Decorative background blobs */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-blush/60 blur-3xl opacity-70" />
-          <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full bg-parchment/80 blur-3xl opacity-60" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-sage/20 blur-3xl" />
+          <div className="absolute -top-32 -right-32 w-150 h-150 rounded-full bg-blush/60 blur-3xl opacity-70" />
+          <div className="absolute bottom-0 -left-20 w-100 h-100 rounded-full bg-parchment/80 blur-3xl opacity-60" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-125 rounded-full bg-sage/20 blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

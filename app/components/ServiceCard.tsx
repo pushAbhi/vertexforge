@@ -41,7 +41,7 @@ export default function ServiceCard({
         className="
           absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
           transition-opacity duration-300 pointer-events-none
-          bg-gradient-to-br from-blush/60 to-transparent
+          bg-linear-to-br from-blush/60 to-transparent
         "
         aria-hidden="true"
       />
