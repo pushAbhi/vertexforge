@@ -40,7 +40,7 @@ export default function Navbar() {
     <>
       <header
         className={`
-          fixed top-0 left-0 right-0 z-50
+          fixed top-0 left-0 right-0 z-40
           transition-all duration-300
           ${isScrolled
             ? "bg-sage/90 backdrop-blur-md shadow-sm border-b border-border"
