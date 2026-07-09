@@ -74,3 +74,13 @@ export interface ServiceCardProps {
   /** Stagger delay index for entrance animation */
   index?: number;
 }
+
+export interface ServiceDetailCardProps {
+    id: string;
+    icon: React.ReactNode;
+    title: string;
+    summary: string;
+    description: string;
+    benefits: string[];
+    i: number;
+}
