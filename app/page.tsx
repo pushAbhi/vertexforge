@@ -8,9 +8,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroAnimation } from "./components/HeroAnimation";
 import ServiceCard from "./components/ServiceCard";
-import ProjectCarousel from "./components/ProjectCarousel";
 import ContactForm from "./components/ContactForm";
-import { PROJECTS, SERVICES } from "./lib/homeData";
+import { SERVICES } from "./lib/homeData";
+import ProjectCarousel from "./components/ProjectCarousel";
 
 export const metadata: Metadata = {
   title: "VertexForge — Full-Stack Development & DevOps for SaaS Teams",
@@ -273,7 +273,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <ProjectCarousel projects={PROJECTS} />
+        <ProjectCarousel />
       </section>
 
       {/* ═══════════════════════════════════════════

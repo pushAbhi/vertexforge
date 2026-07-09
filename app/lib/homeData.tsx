@@ -57,7 +57,7 @@ export const SERVICES = [
     description:
       "Multi-tenancy, billing, auth, and role-based access — the foundational layers done right from day one.",
   },
-];
+] as const;
 
 export const PROJECTS = [
   {
@@ -100,4 +100,4 @@ export const PROJECTS = [
     imageSrc: "/ScaleStack.png",
     imageAlt: "ScaleStack cloud infrastructure diagram",
   },
-];
+] as const;
