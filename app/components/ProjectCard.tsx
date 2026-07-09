@@ -5,14 +5,8 @@
  */
 
 import Image from "next/image";
+import { ProjectCardProps } from "../../types/types";
 
-export interface ProjectCardProps {
-  title: string;
-  description: string;
-  tags: string[];
-  imageSrc: string;
-  imageAlt: string;
-}
 
 export default function ProjectCard({
   title,

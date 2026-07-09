@@ -2,28 +2,12 @@
 
 import { useState, useRef, useId } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import { FormData, FormErrors, FormState } from "../../types/types";
 
 /* ──────────────────────────────────────────────────
    Types
    ────────────────────────────────────────────────── */
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-}
 
-interface FormErrors {
-  name?: string;
-  email?: string;
-  phone?: string;
-  subject?: string;
-  message?: string;
-  recaptcha?: string;
-}
-
-type FormState = "idle" | "submitting" | "success" | "error";
 
 /* ──────────────────────────────────────────────────
    Validation

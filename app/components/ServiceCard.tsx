@@ -7,14 +7,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ServiceCardProps } from "../../types/types";
 
-interface ServiceCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  /** Stagger delay index for entrance animation */
-  index?: number;
-}
+
 
 export default function ServiceCard({
   icon,

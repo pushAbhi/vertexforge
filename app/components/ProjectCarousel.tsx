@@ -10,31 +10,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { DotsProps, ProjectCarouselProps, ProjectSlideProps } from "../../types/types";
 
-interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  imageSrc: string;
-  imageAlt: string;
-}
-
-interface ProjectCarouselProps {
-  projects: Project[];
-}
-
-interface ProjectSlideProps {
-  project: Project;
-  role: "prev" | "active" | "next";
-  onClick?: () => void;
-  onHoverChange: (paused: boolean) => void;
-}
-
-interface DotsProps {
-  projects: Project[];
-  activeIndex: number;
-  goTo: (index: number) => void;
-}
 
 const AUTO_PLAY_INTERVAL = 4000; // ms
 
