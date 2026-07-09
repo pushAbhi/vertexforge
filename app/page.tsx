@@ -254,25 +254,6 @@ export default function HomePage() {
         className="section-py bg-cream overflow-hidden"
         aria-labelledby="projects-heading"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <p className="text-xs font-700 uppercase tracking-widest text-amber mb-3">
-                Our Work
-              </p>
-              <h2
-                id="projects-heading"
-                className="text-3xl lg:text-4xl font-800 text-stone"
-              >
-                Featured Projects
-              </h2>
-            </div>
-            <p className="text-sm text-muted">
-              Hover to explore
-            </p>
-          </div>
-        </div>
-
         <ProjectCarousel />
       </section>
 
