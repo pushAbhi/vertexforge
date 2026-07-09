@@ -207,10 +207,7 @@ export default function ServicesPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {PROCESS.map(({ step, title, description }) => (
               <div key={step} className="relative">
-                {/* Connector line (hidden on last) */}
-                <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-cream/10 -translate-y-1/2 z-0" aria-hidden="true" />
-
-                <div className="relative bg-cream/5 border border-cream/10 rounded-2xl p-6 hover:bg-cream/10 transition-colors duration-300">
+                <div className="relative bg-cream/5 min-h-60 border border-cream/10 rounded-2xl p-6 hover:bg-cream/10 transition-colors duration-300">
                   <div className="text-3xl font-800 text-amber/30 mb-3">{step}</div>
                   <h3 className="text-base font-700 text-cream mb-2">{title}</h3>
                   <p className="text-sm text-cream/50 leading-relaxed">{description}</p>
