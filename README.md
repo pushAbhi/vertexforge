@@ -26,13 +26,13 @@ Built with Next.js 16 + Tailwind + TypeScript. Features Google reCAPTCHA and Res
 
 ## Installation
 
-# 1. Clone the repo
+## 1. Clone the repo
 ```bash
 git clone https://github.com/pushAbhi/vertexforge.git
 cd vertexforge
 ```
 
-# 2. Install dependencies
+## 2. Install dependencies
 ```bash
 npm install
 ```
