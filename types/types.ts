@@ -1,22 +1,21 @@
-
 /* ──────────────────────────────────────────────────
    Types - ContactForm
    ────────────────────────────────────────────────── */
 export interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
+    name: string;
+    email: string;
+    phone: string;
+    subject: string;
+    message: string;
 }
 
 export interface FormErrors {
-  name?: string;
-  email?: string;
-  phone?: string;
-  subject?: string;
-  message?: string;
-  recaptcha?: string;
+    name?: string;
+    email?: string;
+    phone?: string;
+    subject?: string;
+    message?: string;
+    recaptcha?: string;
 }
 
 export type FormState = "idle" | "submitting" | "success" | "error";
@@ -25,12 +24,13 @@ export type FormState = "idle" | "submitting" | "success" | "error";
    Types - ProjectCard
    ────────────────────────────────────────────────── */
 
+export type ProjectCardPosition = "left" | "center" | "right" | "hidden";
+
 export interface ProjectCardProps {
-  title: string;
-  description: string;
-  tags: string[];
-  imageSrc: string;
-  imageAlt: string;
+    project: Project;
+    position: ProjectCardPosition;
+    setActiveIndex: (index: number) => void;
+    index: number;
 }
 
 /* ──────────────────────────────────────────────────
@@ -38,41 +38,40 @@ export interface ProjectCardProps {
    ────────────────────────────────────────────────── */
 
 export interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  imageSrc: string;
-  imageAlt: string;
+    title: string;
+    description: string;
+    tags: string[];
+    imageSrc: string;
+    imageAlt: string;
 }
 
 export interface ProjectCarouselProps {
-  projects: Project[];
+    projects: Project[];
 }
 
 export interface ProjectSlideProps {
-  project: Project;
-  role: "prev" | "active" | "next";
-  onClick?: () => void;
-  onHoverChange: (paused: boolean) => void;
+    project: Project;
+    role: "prev" | "active" | "next";
+    onClick?: () => void;
+    onHoverChange: (paused: boolean) => void;
 }
 
 export interface DotsProps {
-  projects: Project[];
-  activeIndex: number;
-  goTo: (index: number) => void;
+    projects: Project[];
+    activeIndex: number;
+    goTo: (index: number) => void;
 }
-
 
 /* ──────────────────────────────────────────────────
    Types - ServiceCard
    ────────────────────────────────────────────────── */
 
 export interface ServiceCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  /** Stagger delay index for entrance animation */
-  index?: number;
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    /** Stagger delay index for entrance animation */
+    index?: number;
 }
 
 export interface ServiceDetailCardProps {

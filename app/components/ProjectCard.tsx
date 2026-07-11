@@ -1,70 +1,88 @@
-/**
- * ProjectCard — VertexForge
- * Image + title + description + tech tags
- * Used in the horizontal scroll carousel on the Home page.
- */
-
-import Image from "next/image";
 import { ProjectCardProps } from "../../types/types";
 
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ProjectCard({
-  title,
-  description,
-  tags,
-  imageSrc,
-  imageAlt,
+    project,
+    position,
+    setActiveIndex,
+    index,
 }: ProjectCardProps) {
-  return (
-    <article
-      /* scroll-reveal applies CSS scroll-driven scale animation (globals.css) */
-      className="
-        scroll-reveal
-        flex-none w-72 sm:w-80 lg:w-96
-        bg-cream rounded-2xl overflow-hidden
-        border border-border
-        shadow-sm hover:shadow-xl hover:-translate-y-1
-        transition-all duration-300 snap-center
-      "
-    >
-      {/* Project Image */}
-      <div className="relative h-44 w-full overflow-hidden bg-blush">
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 640px) 288px, (max-width: 1024px) 320px, 384px"
-        />
-        {/* Subtle gradient overlay */}
-        <div
-          className="absolute inset-0 bg-linear-to-t from-stone/30 to-transparent"
-          aria-hidden="true"
-        />
-      </div>
+    return (
+        <motion.div
+            key={project.title}
+            onClick={() => setActiveIndex(index)}
+            initial={false}
+            animate={position}
+            variants={{
+                center: {
+                    zIndex: 10,
+                    scale: 1,
+                    opacity: 1,
+                    x: "0%",
+                    filter: "blur(0px)",
+                    cursor: "default",
+                },
+                left: {
+                    zIndex: 5,
+                    scale: 0.72,
+                    opacity: 0.25,
+                    x: "-65%",
+                    filter: "blur(2px)",
+                    cursor: "pointer",
+                },
+                right: {
+                    zIndex: 5,
+                    scale: 0.72,
+                    opacity: 0.25,
+                    x: "65%",
+                    filter: "blur(2px)",
+                    cursor: "pointer",
+                },
+            }}
+            transition={{ type: "spring", stiffness: 260, damping: 28 }}
+            className="absolute w-full max-w-4xl bg-sage/90 border border-border/40 rounded-3xl shadow-2xl overflow-hidden"
+        >
+            {/* Horizontal Grid Structure: 16:9 Image Block Left, Description Box Right */}
+            <div className="flex flex-col md:flex-row w-full h-full min-h-90 md:min-h-100 items-center justify-between">
+                {/* Left Half: Image */}
+                <div className="relative w-full md:w-1/2 aspect-video self-center md:h-full">
+                    <Image
+                        src={project.imageSrc}
+                        alt={project.imageAlt}
+                        fill
+                        sizes="(max-width-768px) 100vw, 50vw"
+                        className="object-cover object-center md:p-4 rounded-4xl"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
 
-      {/* Card Content */}
-      <div className="p-5">
-        <h3 className="text-base font-700 text-stone mb-1.5">{title}</h3>
-        <p className="text-sm text-muted leading-relaxed mb-4 line-clamp-2">
-          {description}
-        </p>
+                {/* Right Half: Content Frame */}
+                <div className="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-between items-center h-full text-neutral-100">
+                    <div className="space-y-4">
+                        <h3 className="text-2xl md:text-3xl font-bold text-black tracking-tight">
+                            {project.title}
+                        </h3>
+                        <p className="text-sm md:text-base leading-relaxed text-slate-800 font-normal">
+                            {project.description}
+                        </p>
+                    </div>
 
-        {/* Tech Tags */}
-        <div className="flex flex-wrap gap-1.5" aria-label="Technologies used">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="
-                text-xs font-500 px-2.5 py-0.5 rounded-full
-                bg-blush border border-border text-stone-light
-              "
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </article>
-  );
+                    {/* On-brand Technology Tags using fallback states */}
+                    <div className="mt-8 flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="inline-flex items-center rounded-lg bg-amber px-3 py-1 text-xs font-mono text-black"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </motion.div>
+    );
 }
