@@ -26,18 +26,7 @@ export type FormState = "idle" | "submitting" | "success" | "error";
 
 export type ProjectCardPosition = "left" | "center" | "right" | "hidden";
 
-export interface ProjectCardProps {
-    project: Project;
-    position: ProjectCardPosition;
-    setActiveIndex: (index: number) => void;
-    index: number;
-}
-
-/* ──────────────────────────────────────────────────
-   Types - ProjectCard
-   ────────────────────────────────────────────────── */
-
-export interface Project {
+interface Project {
     title: string;
     description: string;
     tags: string[];
@@ -45,21 +34,11 @@ export interface Project {
     imageAlt: string;
 }
 
-export interface ProjectCarouselProps {
-    projects: Project[];
-}
-
-export interface ProjectSlideProps {
+export interface ProjectCardProps {
     project: Project;
-    role: "prev" | "active" | "next";
-    onClick?: () => void;
-    onHoverChange: (paused: boolean) => void;
-}
-
-export interface DotsProps {
-    projects: Project[];
-    activeIndex: number;
-    goTo: (index: number) => void;
+    position: ProjectCardPosition;
+    setActiveIndex: (index: number) => void;
+    index: number;
 }
 
 /* ──────────────────────────────────────────────────
