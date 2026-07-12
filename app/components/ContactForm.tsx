@@ -108,7 +108,7 @@ export default function ContactForm() {
     w-full px-4 py-3 rounded-xl text-sm
     bg-cream border transition-colors duration-200
     placeholder:text-subtle text-stone
-    focus:outline-none focus:ring-2 focus:ring-amber/50 focus:border-amber
+    focus:border-cream/0
   `;
   const inputError = "border-red-300";
   const inputNormal = "border-border";
