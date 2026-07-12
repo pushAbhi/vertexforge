@@ -47,7 +47,7 @@ export default function ProjectCarousel() {
 
             <div className="w-full bg-cream py-16 flex items-center justify-center overflow-hidden border-y border-border">
                 {/* Stage Container - Height increased for dramatic spacing */}
-                <div className="relative flex items-center justify-center w-full h-130 max-w-7xl px-4">
+                <div className="relative flex items-center justify-center w-80 sm:w-140 md:w-190 lg:w-full h-130 max-w-7xl px-4">
                     {PROJECTS.map((project, index) => {
                         const relIndex = getRelativeIndex(index);
 
