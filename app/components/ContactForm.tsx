@@ -5,11 +5,6 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { FormData, FormErrors, FormState } from "../../types/types";
 
 /* ──────────────────────────────────────────────────
-   Types
-   ────────────────────────────────────────────────── */
-
-
-/* ──────────────────────────────────────────────────
    Validation
    ────────────────────────────────────────────────── */
 function validate(data: FormData, captchaToken: string | null): FormErrors {
