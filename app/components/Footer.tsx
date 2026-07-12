@@ -42,6 +42,8 @@ const FOOTER_LINKS = {
     { href: "/about", label: "About Us" },
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms of Service" },
   ],
   Services: [
     { href: "/services#fullstack", label: "Full-Stack Development" },
